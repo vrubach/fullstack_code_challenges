@@ -6,11 +6,6 @@
  * Time: 10:14
  */
 
-namespace Snubes\BackendChallenge;
-
-
-
-
 class CacheManager
 {
     private $cache;
