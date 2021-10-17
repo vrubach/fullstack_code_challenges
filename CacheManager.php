@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: isnain
- * Date: 09.08.21
- * Time: 10:14
+ * User: vrubach
+ * Date: 17.10.21
+ * Time: 13:23
  */
 
 class CacheManager
@@ -34,7 +34,7 @@ class CacheManager
 
     }
 
-    public function set(string $key, string $value, string $is_compressed=null, string $ttl=null){
+    public function set(string $key, string $value, string $is_compressed=false, string $ttl=0){
 
         if($this->cache instanceof \Memcache)
             $this->cache->set($key,$value,$is_compressed,$ttl);
@@ -64,7 +64,6 @@ $cm=new CacheManager();
 $cm->setCache('redis');
 $cm->connect('somehost','121');
 $cm->set('one','1');
-$cm->lpush('two','1');
 $cm->lpush('two','2');
 echo $cm->get('one');
 
